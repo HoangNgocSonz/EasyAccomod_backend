@@ -28,7 +28,6 @@ const PosstSchema = mongoose.Schema({
   phone: String,
   description: String,
   author: String,
-  avalink: String,
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
