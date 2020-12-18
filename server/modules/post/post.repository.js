@@ -8,7 +8,7 @@ const PosstSchema = mongoose.Schema({
   phuong: String,
   addressDetail: String,
   kindOfRoom: String,
-  cost: Number,
+  cost: String,
   acreage: Number,
   images: [
     {
