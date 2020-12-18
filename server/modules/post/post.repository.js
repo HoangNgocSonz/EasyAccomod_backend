@@ -26,7 +26,6 @@ const PosstSchema = mongoose.Schema({
     costOFWater: Number,
   },
   phone: String,
-  description: String,
   author: String,
 });
 
