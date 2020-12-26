@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const PosstSchema = mongoose.Schema({
   userName: String,
+  avatar: Image,
 });
 
 const UserModel = mongoose.model("User", PosstSchema);
