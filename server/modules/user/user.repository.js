@@ -2,6 +2,14 @@ const mongoose = require("mongoose");
 
 const PosstSchema = mongoose.Schema({
   userName: String,
+  email: String,
+  sdt: String,
+  gender: String,
+  soChungMinhThu: String,
+  province: String,
+  quan_huyen: String,
+  phuong_xa: String,
+  avatar: String,
 });
 
 const UserModel = mongoose.model("User", PosstSchema);
