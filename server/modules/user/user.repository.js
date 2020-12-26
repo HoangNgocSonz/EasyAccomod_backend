@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const PosstSchema = mongoose.Schema({
   userName: String,
   email: String,
-  sdt: String,
+  phone: String,
   gender: String,
   soChungMinhThu: String,
   province: String,
