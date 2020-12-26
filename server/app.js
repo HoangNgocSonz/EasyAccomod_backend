@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const postRouter = require("./modules/post/post.router");
+const userRouter = require("./modules/post/post.router");
 const mongoose = require("mongoose");
 const config = require("./config");
 const cors = require("cors");
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/", express.static("../client"));
 app.use("/api/post", postRouter);
+app.use("/api/user", userRouter);
 
 app.listen(PORT, function () {
   console.log(`Server is listening on ${PORT}`);
