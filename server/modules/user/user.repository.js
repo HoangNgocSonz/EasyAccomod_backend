@@ -11,9 +11,11 @@ const PosstSchema = mongoose.Schema({
   quan_huyen: String,
   phuong_xa: String,
   avatar: String,
-  favourite: {
-    type: String,
-  },
+  favourite: [
+    {
+      type: String,
+    },
+  ],
 });
 
 const UserModel = mongoose.model("User", PosstSchema);
