@@ -46,12 +46,14 @@ const update = async function (id, data) {
     data.quan_huyen
   ) {
     return await UserModel.findByIdAndUpdate(id, { $set: data }, { new: true });
-  } else if (data.favourite) {
-    return await UserModel.findByIdAndUpdate(
-      id,
-      { $addToSet: data },
-      { new: true }
-    );
+  } else {
+    if (data.favourite) {
+      return await UserModel.findByIdAndUpdate(
+        id,
+        { $addToSet: data },
+        { new: true }
+      );
+    }
   }
 };
 
