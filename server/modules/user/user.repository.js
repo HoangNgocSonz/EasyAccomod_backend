@@ -34,14 +34,24 @@ const create = async function (data) {
 };
 
 const update = async function (id, data) {
-  if (data.favourite) {
+  if (
+    data.userName ||
+    data.password ||
+    data.email ||
+    data.phone ||
+    data.soChungMinhThu ||
+    data.province ||
+    data.avatar ||
+    data.gender ||
+    data.quan_huyen
+  ) {
+    return await UserModel.findByIdAndUpdate(id, { $set: data }, { new: true });
+  } else if (data.favourite) {
     return await UserModel.findByIdAndUpdate(
       id,
       { $addToSet: data },
       { new: true }
     );
-  } else {
-    return await UserModel.findByIdAndUpdate(id, { $set: data }, { new: true });
   }
 };
 
