@@ -34,7 +34,11 @@ const create = async function (data) {
 };
 
 const update = async function (id, data) {
-  return await UserModel.findByIdAndUpdate(id, { $set: data }, { new: true });
+  return await UserModel.findByIdAndUpdate(
+    id,
+    { $addToSet: data },
+    { new: true }
+  );
 };
 
 const deleteOne = async function (id) {
