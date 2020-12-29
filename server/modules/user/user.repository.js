@@ -45,7 +45,8 @@ const update = async function (id, data) {
     data.province ||
     data.avatar ||
     data.gender ||
-    data.quan_huyen
+    data.quan_huyen ||
+    data.status
   ) {
     return await UserModel.findByIdAndUpdate(id, { $set: data }, { new: true });
   } else {
