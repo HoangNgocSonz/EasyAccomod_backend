@@ -11,6 +11,8 @@ const PosstSchema = mongoose.Schema({
   quan_huyen: String,
   phuong_xa: String,
   avatar: String,
+  position: String,
+  status: String,
   favourite: [
     {
       type: String,
