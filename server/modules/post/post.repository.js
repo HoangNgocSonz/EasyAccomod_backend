@@ -27,12 +27,7 @@ const PosstSchema = mongoose.Schema({
   },
   phone: String,
   author: String,
-  status:String,
-  comment:[{
-    userName:String,
-    commentx:String,
-    avatar:String
-  }]
+  status:String
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
