@@ -27,6 +27,11 @@ const PosstSchema = mongoose.Schema({
   },
   phone: String,
   author: String,
+  commemt: {
+    avatar: String,
+    comment: String,
+    userName: String,
+  },
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
