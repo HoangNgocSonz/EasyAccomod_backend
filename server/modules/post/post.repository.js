@@ -27,11 +27,20 @@ const PosstSchema = mongoose.Schema({
   },
   phone: String,
   author: String,
+<<<<<<< HEAD
   commemt: {
     avatar: String,
     comment: String,
     userName: String,
   },
+=======
+  status:String,
+  comment:[{
+    userName:String,
+    commentx:String,
+    avatar:String
+  }]
+>>>>>>> 889c35589f59eb3eefcae748cd6fd5e210029822
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
