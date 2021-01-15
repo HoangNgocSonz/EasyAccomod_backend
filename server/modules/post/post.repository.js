@@ -28,7 +28,7 @@ const PosstSchema = mongoose.Schema({
 const PostModel = mongoose.model("Post", PosstSchema);
 
 const find = async function (query) {
-  return await PostModel.find(query).populate("detailInfor");
+  return await PostModel.find(query);
 };
 
 const findById = async function (id) {
