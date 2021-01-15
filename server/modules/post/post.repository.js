@@ -16,10 +16,7 @@ const PosstSchema = mongoose.Schema({
     },
   ],
 
-  detailInfor: {
-    type: mongoose.Types.ObjectId,
-    ref: "detailInfor",
-  },
+  detailInfor: { type: Schema.Types.ObjectId, ref: "detailInfor" },
   phone: String,
   author: String,
   status: String,
@@ -28,7 +25,7 @@ const PosstSchema = mongoose.Schema({
 const PostModel = mongoose.model("Post", PosstSchema);
 
 const find = async function (query) {
-  return await PostModel.find(query);
+  return await PostModel.find(query).populate("detailInfor");
 };
 
 const findById = async function (id) {
