@@ -18,21 +18,21 @@ const PosstSchema = mongoose.Schema({
 
   detailInfor: {
     type: mongoose.Types.ObjectId,
-    ref: "motelDetail",
+    ref: "detailInfor",
   },
   phone: String,
   author: String,
-  status:String
+  status: String,
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
 
 const find = async function (query) {
-  return await PostModel.find(query).populate("motelDetail");
+  return await PostModel.find(query).populate("detailInfor");
 };
 
 const findById = async function (id) {
-  return await PostModel.findById(id).populate("motelDetail");
+  return await PostModel.findById(id).populate("detailInfor");
 };
 
 const create = async function (data) {
