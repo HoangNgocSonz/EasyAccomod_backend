@@ -3,12 +3,24 @@ const mongoose = require("mongoose");
 const MotelDetailSchema = mongoose.Schema({
   bathroom: Number,
   Bedroom: Number,
-  air_conditioning: Boolean,
-  electric_water_heater: Boolean,
+  air_conditioning: {
+    type: Boolean,
+    default: false,
+  },
+  electric_water_heater: {
+    type: Boolean,
+    default: false,
+  },
   costOfElectric: Number,
   costOFWater: Number,
-  wifi: Boolean,
-  common_or_not: Boolean,
+  wifi: {
+    type: Boolean,
+    default: false,
+  },
+  common_or_not: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const MotelDetailModel = mongoose.model("motelDetail", MotelDetailSchema);
