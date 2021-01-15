@@ -1,0 +1,46 @@
+const repository = require("./motelDetail.repository.js");
+
+const find = async function (query) {
+  return await repository.find(query);
+};
+
+const findById = async function (id) {
+  return await repository.findById(id);
+};
+
+const create = async function (data) {
+  // Validate
+  if (!data || !data.title) {
+    throw new Error("Missing input!");
+  }
+
+  return await repository.create(data);
+};
+
+const update = async function (id, data) {
+  // Validate
+  const existedRecord = await repository.findById(id);
+  if (!existedRecord) {
+    throw new Error("Entity not found");
+  }
+
+  return await repository.update(id, data);
+};
+
+const deleteOne = async function (id) {
+  // Validate
+  const existedRecord = await repository.findById(id);
+  if (!existedRecord) {
+    throw new Error("Entity not found");
+  }
+
+  return await repository.delete(id);
+};
+
+module.exports = {
+  find: find,
+  findById: findById,
+  create: create,
+  update: update,
+  delete: deleteOne,
+};

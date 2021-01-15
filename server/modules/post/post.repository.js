@@ -15,15 +15,10 @@ const PosstSchema = mongoose.Schema({
       type: String,
     },
   ],
-  common_or_not: Boolean,
+
   detailInfor: {
-    bathroom: Number,
-    Bedroom: Number,
-    air_conditioning: Boolean,
-    electric_water_heater: Boolean,
-    balcony: Boolean,
-    costOfElectric: Number,
-    costOFWater: Number,
+    type: mongoose.Types.ObjectId,
+    ref: "motelDetail",
   },
   phone: String,
   author: String,
@@ -39,11 +34,11 @@ const PosstSchema = mongoose.Schema({
 const PostModel = mongoose.model("Post", PosstSchema);
 
 const find = async function (query) {
-  return await PostModel.find(query);
+  return await PostModel.find(query).populate("motelDetail");
 };
 
 const findById = async function (id) {
-  return await PostModel.findById(id);
+  return await PostModel.findById(id).populate("motelDetail");
 };
 
 const create = async function (data) {
