@@ -16,10 +16,32 @@ const PosstSchema = mongoose.Schema({
       type: String,
     },
   ],
-  detailInfor: { type: Schema.Types.ObjectId, ref: "motelDetail" },
+  // detailInfor: { type: Schema.Types.ObjectId, ref: "motelDetail" },
   phone: String,
   author: String,
   status: String,
+
+  bathroom: Number,
+  Bedroom: Number,
+  ToiLet: Number,
+  air_conditioning: {
+    type: Boolean,
+    default: false,
+  },
+  electric_water_heater: {
+    type: Boolean,
+    default: false,
+  },
+  costOfElectric: Number,
+  costOFWater: Number,
+  wifi: {
+    type: Boolean,
+    default: false,
+  },
+  common_or_not: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
