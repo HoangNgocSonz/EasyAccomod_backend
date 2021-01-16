@@ -42,6 +42,7 @@ const PosstSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  deleteTrashCost: String,
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
