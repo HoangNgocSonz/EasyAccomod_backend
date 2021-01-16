@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const MotelDetailSchema = mongoose.Schema({
   bathroom: Number,
   Bedroom: Number,
+  ToiLet: Number,
   air_conditioning: {
     type: Boolean,
     default: false,
