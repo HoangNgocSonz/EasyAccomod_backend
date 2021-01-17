@@ -43,29 +43,37 @@ const PosstSchema = mongoose.Schema({
     default: false,
   },
   deleteTrashCost: String,
+  comment: {
+    type: Schema.Types.ObjectId,
+    ref: "comment",
+  },
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
 
 const find = async function (query) {
-  return await PostModel.find(query).populate("detailInfor");
+  return await PostModel.find(query).populate("comment");
 };
 
 const findById = async function (id) {
-  return await PostModel.findById(id).populate("detailInfor");
+  return await PostModel.findById(id).populate("comment");
 };
 
 const create = async function (data) {
-  const newDocument = new PostModel(data);
+  const newDocument = new PostModel(data).populate("comment");
   return await newDocument.save();
 };
 
 const update = async function (id, data) {
-  return await PostModel.findByIdAndUpdate(id, { $set: data }, { new: true });
+  return await PostModel.findByIdAndUpdate(
+    id,
+    { $set: data },
+    { new: true }
+  ).populate("comment");
 };
 
 const deleteOne = async function (id) {
-  return await PostModel.findByIdAndDelete(id);
+  return await PostModel.findByIdAndDelete(id).populate("comment");
 };
 
 module.exports = {
