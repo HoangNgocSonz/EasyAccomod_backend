@@ -9,15 +9,15 @@ const CommentSchema = mongoose.Schema({
 const CommentModel = mongoose.model("comment", CommentSchema);
 
 const find = async function (query) {
-  return await CommentModel.find(query).populate("detailInfor");
+  return await CommentModel.find(query).populate("author");
 };
 
 const findById = async function (id) {
-  return await CommentModel.findById(id).populate("detailInfor");
+  return await CommentModel.findById(id).populate("author");
 };
 
 const create = async function (data) {
-  const newDocument = new CommentModel(data);
+  const newDocument = new CommentModel(data).populate("author");
   return await newDocument.save();
 };
 
@@ -26,11 +26,11 @@ const update = async function (id, data) {
     id,
     { $set: data },
     { new: true }
-  );
+  ).populate("author");
 };
 
 const deleteOne = async function (id) {
-  return await CommentModel.findByIdAndDelete(id);
+  return await CommentModel.findByIdAndDelete(id).populate("author");
 };
 
 module.exports = {
