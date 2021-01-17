@@ -16,7 +16,6 @@ const PosstSchema = mongoose.Schema({
       type: String,
     },
   ],
-  // detailInfor: { type: Schema.Types.ObjectId, ref: "motelDetail" },
   phone: String,
   author: String,
   status: String,
