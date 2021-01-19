@@ -77,7 +77,9 @@ const update = async function (id, data) {
     data.kindOfRoom ||
     data.cost ||
     data.acreage ||
-    data.phone
+    data.phone ||
+    data.author ||
+    data.status
   ) {
     return await PostModel.findByIdAndUpdate(
       id,
