@@ -86,7 +86,7 @@ const update = async function (id, data) {
     ).populate("comment");
   } else {
     if (data.comment) {
-      return await UserModel.findByIdAndUpdate(
+      return await PostModel.findByIdAndUpdate(
         id,
         { $addToSet: data },
         { new: true }
