@@ -51,7 +51,7 @@ const PosstSchema = mongoose.Schema({
   ],
   favourite: [
     {
-      type: String,
+      type: Schema.Types.ObjectId,
     },
   ],
 });
