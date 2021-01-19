@@ -61,7 +61,7 @@ const findById = async function (id) {
 
 const create = async function (data) {
   const newDocument = new PostModel(data);
-  return await newDocument.save().populate("comment");
+  return await newDocument.save();
 };
 
 const update = async function (id, data) {
