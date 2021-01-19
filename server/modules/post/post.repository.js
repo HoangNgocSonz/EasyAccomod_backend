@@ -43,10 +43,12 @@ const PosstSchema = mongoose.Schema({
     default: false,
   },
   deleteTrashCost: String,
-  comment: {
-    type: Schema.Types.ObjectId,
-    ref: "comment",
-  },
+  comment: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "comment",
+    },
+  ],
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
@@ -70,6 +72,33 @@ const update = async function (id, data) {
     { $set: data },
     { new: true }
   ).populate("comment");
+
+  if (
+    data.title ||
+    data.description ||
+    data.province ||
+    data.quan_huyen ||
+    data.phuong ||
+    data.addressDetail ||
+    data.kindOfRoom ||
+    data.cost ||
+    data.acreage ||
+    data.phone
+  ) {
+    return await PostModel.findByIdAndUpdate(
+      id,
+      { $set: data },
+      { new: true }
+    ).populate("comment");
+  } else {
+    if (data.comment) {
+      return await UserModel.findByIdAndUpdate(
+        id,
+        { $addToSet: data },
+        { new: true }
+      );
+    }
+  }
 };
 
 const deleteOne = async function (id) {
