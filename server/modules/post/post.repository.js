@@ -67,12 +67,6 @@ const create = async function (data) {
 };
 
 const update = async function (id, data) {
-  return await PostModel.findByIdAndUpdate(
-    id,
-    { $set: data },
-    { new: true }
-  ).populate("comment");
-
   if (
     data.title ||
     data.description ||
