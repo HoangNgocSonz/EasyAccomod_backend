@@ -92,7 +92,7 @@ const update = async function (id, data) {
         id,
         { $addToSet: data },
         { new: true }
-      );
+      ).populate("commentx");
     }
   }
 };
