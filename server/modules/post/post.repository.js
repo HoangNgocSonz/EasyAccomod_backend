@@ -54,11 +54,11 @@ const PosstSchema = mongoose.Schema({
 const PostModel = mongoose.model("Post", PosstSchema);
 
 const find = async function (query) {
-  return await PostModel.find(query).populate("comment");
+  return await PostModel.find(query).populate("commentx");
 };
 
 const findById = async function (id) {
-  return await PostModel.findById(id).populate("comment");
+  return await PostModel.findById(id).populate("commentx");
 };
 
 const create = async function (data) {
@@ -85,7 +85,7 @@ const update = async function (id, data) {
       id,
       { $set: data },
       { new: true }
-    ).populate("comment");
+    ).populate("commentx");
   } else {
     if (data.commentx) {
       return await PostModel.findByIdAndUpdate(
@@ -98,7 +98,7 @@ const update = async function (id, data) {
 };
 
 const deleteOne = async function (id) {
-  return await PostModel.findByIdAndDelete(id).populate("comment");
+  return await PostModel.findByIdAndDelete(id).populate("commentx");
 };
 
 module.exports = {
