@@ -49,6 +49,11 @@ const PosstSchema = mongoose.Schema({
       ref: "comment",
     },
   ],
+  favourite: [
+    {
+      type: String,
+    },
+  ],
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
@@ -85,7 +90,7 @@ const update = async function (id, data) {
       { new: true }
     ).populate("comment");
   } else {
-    if (data.comment) {
+    if (data.comment || data.favourite) {
       return await PostModel.findByIdAndUpdate(
         id,
         { $addToSet: data },
