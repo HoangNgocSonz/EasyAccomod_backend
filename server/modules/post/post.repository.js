@@ -43,13 +43,7 @@ const PosstSchema = mongoose.Schema({
     default: false,
   },
   deleteTrashCost: String,
-  comment: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "comment",
-    },
-  ],
-  favourite: [
+  commentx: [
     {
       type: Schema.Types.ObjectId,
       ref: "comment",
@@ -91,7 +85,7 @@ const update = async function (id, data) {
       { new: true }
     ).populate("comment");
   } else {
-    if (data.comment || data.favourite) {
+    if (data.commentx) {
       return await PostModel.findByIdAndUpdate(
         id,
         { $addToSet: data },
