@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CommentSchema = mongoose.Schema({
-  author: { type: Schema.Types.ObjectId, ref: "User" },
+  authorName: String,
+  authorAvatar: String,
   content: String,
 });
 
