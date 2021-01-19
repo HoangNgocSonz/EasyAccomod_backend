@@ -52,6 +52,7 @@ const PosstSchema = mongoose.Schema({
   favourite: [
     {
       type: Schema.Types.ObjectId,
+      ref: "comment",
     },
   ],
 });
