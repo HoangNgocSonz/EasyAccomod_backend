@@ -21,7 +21,7 @@ const findById = async function (id) {
 
 const create = async function (data) {
   // Validate
-  if (!data || !data.author) {
+  if (!data) {
     throw new Error("Missing input!");
   }
 
