@@ -42,6 +42,14 @@ const PosstSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  report_have_been_leased: {
+    type: Boolean,
+    default: false,
+  },
+  report_wrong_information: {
+    type: Boolean,
+    default: false,
+  },
   deleteTrashCost: String,
   commentx: [
     {
