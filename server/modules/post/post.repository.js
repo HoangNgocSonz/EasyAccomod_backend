@@ -88,8 +88,8 @@ const update = async function (id, data) {
     data.phone ||
     data.author ||
     data.status ||
-    reportLeased ||
-    report_wrong_information
+    data.reportLeased ||
+    data.report_wrong_information
   ) {
     return await PostModel.findByIdAndUpdate(
       id,
