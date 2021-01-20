@@ -42,7 +42,7 @@ const PosstSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  report_have_been_leased: {
+  reportLeased: {
     type: Boolean,
     default: false,
   },
@@ -88,7 +88,7 @@ const update = async function (id, data) {
     data.phone ||
     data.author ||
     data.status ||
-    report_have_been_leased ||
+    reportLeased ||
     report_wrong_information
   ) {
     return await PostModel.findByIdAndUpdate(
