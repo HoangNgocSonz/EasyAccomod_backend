@@ -57,6 +57,11 @@ const PosstSchema = mongoose.Schema({
       ref: "comment",
     },
   ],
+  veryBad: Number,
+  bad: Number,
+  nomal: Number,
+  good: Number,
+  veryGood: Number,
 });
 
 const PostModel = mongoose.model("Post", PosstSchema);
