@@ -109,7 +109,12 @@ const update = async function (id, data) {
     data.author ||
     data.status ||
     data.reportLeased ||
-    data.report_wrong_information
+    data.report_wrong_information ||
+    data.veryGood ||
+    data.good ||
+    data.nomal ||
+    data.bad ||
+    data.veryBad
   ) {
     return await PostModel.findByIdAndUpdate(
       id,
