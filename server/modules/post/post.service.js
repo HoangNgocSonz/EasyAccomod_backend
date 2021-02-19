@@ -11,8 +11,8 @@ const repository = require("./post.repository.js");
 //   }
 // }
 
-const find = async function (query) {
-  return await repository.find(query);
+const find = async function (query, data) {
+  return await repository.find(query, data);
 };
 const findById = async function (id) {
   return await repository.findById(id);

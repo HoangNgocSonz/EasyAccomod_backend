@@ -81,8 +81,12 @@ const PosstSchema = mongoose.Schema({
 
 const PostModel = mongoose.model("Post", PosstSchema);
 
-const find = async function (query) {
-  return await PostModel.find(query).populate("commentx");
+const find = async function (query, data) {
+  console.log(data.pageNumber);
+  return await PostModel.find(query)
+    .skip(data.pageNumber)
+    .limit(4)
+    .populate("commentx");
 };
 
 const findById = async function (id) {

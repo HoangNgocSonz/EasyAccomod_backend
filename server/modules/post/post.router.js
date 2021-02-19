@@ -17,7 +17,7 @@ const service = require("./post.service.js");
 
 router.get("/", async function (req, res) {
   try {
-    const data = await service.find(req.query);
+    const data = await service.find(req.query, req.body);
     res.status(200).send({
       data: data,
     });
